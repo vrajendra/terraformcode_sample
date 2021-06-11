@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginxtaint
+spec:
+  affinity:
+   nodeAffinity:
+     requiredDuringSchedulingIgnoredDuringExecution:
+       nodeSelectorTerms:
+       - matchExpressions:
+         - key: examplekey
+           operator: In
+           values:
+           - taint1
+  tolerations:
+  - key: "examplekey"
+    operator: "Equal"
+    value: "taint1"
+    effect: "NoSchedule"
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent

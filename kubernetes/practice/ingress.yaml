@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    meta.helm.sh/release-name: dev
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2021-05-15T21:53:01Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  name: dev-guestbook-ingress
+  namespace: default
+  resourceVersion: "767155"
+  uid: ec1ebc3b-d9ec-42f5-9761-ef80513cbb23
+spec:
+  rules:
+  - host: dev.frontend.minikube.local
+    http:
+      paths:
+      - backend:
+          service:
+            name: dev-frontend
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+  - host: dev.backend.minikube.local
+    http:
+      paths:
+      - backend:
+          service:
+            name: dev-backend
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.168.1.142

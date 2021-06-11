@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"ReplicaSet","metadata":{"annotations":{},"labels":{"app":"guestbook","tier":"frontend"},"name":"frontend","namespace":"production"},"spec":{"replicas":3,"selector":{"matchLabels":{"tier":"frontend"}},"template":{"metadata":{"labels":{"tier":"frontend"}},"spec":{"containers":[{"image":"gcr.io/google_samples/gb-frontend:v3","name":"php-redis"}]}}}}
+  creationTimestamp: "2021-05-08T08:01:41Z"
+  generation: 1
+  labels:
+    app: guestbook
+    tier: frontend
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:tier: {}
+      f:spec:
+        f:replicas: {}
+        f:selector: {}
+        f:template:
+          f:metadata:
+            f:labels:
+              .: {}
+              f:tier: {}
+          f:spec:
+            f:containers:
+              k:{"name":"php-redis"}:
+                .: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-05-08T08:01:41Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:availableReplicas: {}
+        f:fullyLabeledReplicas: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-05-08T08:02:41Z"
+  name: frontend
+  namespace: production
+  resourceVersion: "308990"
+  uid: 254b17bc-2947-4e6b-a3e3-706d1041b5f6
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - image: gcr.io/google_samples/gb-frontend:v3
+        imagePullPolicy: IfNotPresent
+        name: php-redis
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 3
+  fullyLabeledReplicas: 3
+  observedGeneration: 1
+  readyReplicas: 3
+  replicas: 3
