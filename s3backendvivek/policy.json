@@ -1,0 +1,12 @@
+{
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::264523937148:user/terraform-deployer"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::terraform-backend-store-vivektest"
+        }
+    ]
+}
