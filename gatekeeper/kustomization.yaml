@@ -3,6 +3,6 @@ kind: Kustomization
 helmCharts:
 - name: gatekeeper
   repo:  https://open-policy-agent.github.io/gatekeeper/charts
-  version: 14.3.0
+  version: 3.8.1
 resources:
 - git@github.com:vrajendra/terraformcode_sample//base/library
