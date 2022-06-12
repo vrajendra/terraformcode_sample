@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
 - ./all.yaml 
-- ssh://git@github.com:vrajendra/terraformcode_sample//base/library  
+- https://github.com/vrajendra/terraformcode_sample//base/library  
